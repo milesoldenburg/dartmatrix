@@ -9,7 +9,8 @@
     "gulp": "^3.9.0",
     "gulp-bower": "0.0.10",
     "gulp-jscs": "^1.6.0",
-    "gulp-jshint": "^1.11.0"
+    "gulp-jshint": "^1.11.0",
+    "gulp-less": "^3.0.3"
   },
   "main": "lib/main.js",
   "name": "dartmatrix",

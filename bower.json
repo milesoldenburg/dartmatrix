@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "description": "Static components for DartMatrix",
   "dependencies": {
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "ubuntu-fontface": "~0.1.3"
   }
 }

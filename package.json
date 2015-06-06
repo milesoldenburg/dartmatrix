@@ -1,0 +1,23 @@
+{
+  "author": {
+    "email": "milesoldenburg@gmail.com",
+    "name": "Miles Oldenburg"
+  },
+  "description": "DartMatrix: Open source darts companion and statistics app",
+  "devDependencies": {
+    "atom-package-manager": "^0.171.0",
+    "electron-prebuilt": "^0.27.2",
+    "gulp": "^3.9.0",
+    "gulp-electron": "0.0.5",
+    "gulp-jscs": "^1.6.0",
+    "gulp-jshint": "^1.11.0"
+  },
+  "main": "lib/main.js",
+  "name": "dartmatrix",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/milesoldenburg/dartmatrix.git"
+  },
+  "version": "0.1.0"
+}

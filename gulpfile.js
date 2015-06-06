@@ -59,27 +59,25 @@ gulp.task('bower', function(){
 });
 
 /**
- * Copies bower components for use
- */
-gulp.task('copy', function(){
-    gulp.src(path.join(__dirname, 'static/bower_components/ubuntu-fontface/fonts/*'))
-        .pipe(gulp.dest(path.join(__dirname, 'static/css/fonts')));
-});
-
-/**
  * Compiles LESS into CSS
  */
-gulp.task('less', ['copy'], function(){
+gulp.task('less', function(){
     var autoprefix = new LessPluginAutoPrefix({
         browsers : ['last 1 Chrome version']
     });
 
     return gulp.src(path.join(__dirname, 'static/css/styles.less'))
         .pipe(less({
-            paths : [path.join(__dirname, 'static/bower_components')],
             plugins : [autoprefix]
         }))
         .pipe(gulp.dest(path.join(__dirname, 'static/css')));
+});
+
+/**
+ * Watches for changes in LESS and then triggers the less task
+ */
+gulp.task('watch', function(){
+    gulp.watch(path.join(__dirname, 'static/css/styles.less'), ['less']);
 });
 
 /**

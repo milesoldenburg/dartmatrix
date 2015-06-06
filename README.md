@@ -10,6 +10,10 @@ Install proper dependencies
 Prepare CSS
 
 	gulp less
+	
+Watch for changes to the LESS file and automatically build the CSS
+
+	gulp watch
 
 ## Testing
 Lint all code

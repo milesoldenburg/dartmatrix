@@ -6,6 +6,10 @@ Install proper dependencies
 
 	npm install
 	gulp bower
+	
+Prepare CSS
+
+	gulp less
 
 ## Testing
 Lint all code

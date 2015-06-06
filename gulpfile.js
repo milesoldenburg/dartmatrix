@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var less = require('gulp-less');
+var LessPluginAutoPrefix = require('less-plugin-autoprefix');
 var path = require('path');
 
 /**
@@ -69,9 +70,14 @@ gulp.task('copy', function(){
  * Compiles LESS into CSS
  */
 gulp.task('less', ['copy'], function(){
+    var autoprefix = new LessPluginAutoPrefix({
+        browsers : ['last 1 Chrome version']
+    });
+
     return gulp.src(path.join(__dirname, 'static/css/styles.less'))
         .pipe(less({
-            paths : [path.join(__dirname, 'static/bower_components')]
+            paths : [path.join(__dirname, 'static/bower_components')],
+            plugins : [autoprefix]
         }))
         .pipe(gulp.dest(path.join(__dirname, 'static/css')));
 });

@@ -1,12 +1,8 @@
 // Dependencies
-var electron = require('gulp-electron');
 var gulp = require('gulp');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var path = require('path');
-
-// Configurations
-var packageJson = require(path.join(__dirname, 'package.json'));
 
 /**
  * Lints the config files
@@ -50,20 +46,6 @@ gulp.task('jscs:lib', function(){
             fix : true
         }))
         .pipe(gulp.dest(path.join(__dirname, 'lib')));
-});
-
-gulp.task('electron', function(){
-    gulp.src('')
-        .pipe(electron({
-            src : './',
-            packageJson : packageJson,
-            cache : './cache',
-            release : './release',
-            version : 'v0.27.2',
-            platforms : ['darwin-x64'],
-            apm : './node_modules/atom-package-manager/bin/apm'
-        }))
-        .pipe(gulp.dest(''));
 });
 
 /**

@@ -1,0 +1,9 @@
+{
+  "name": "dartmatrix-components",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Static components for DartMatrix",
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}

@@ -5,7 +5,9 @@ An open source darts companion and statistics app.
 Install proper dependencies
 
 	npm install
-	
+	gulp bower
+
+## Testing
 Lint all code
 
 	gulp

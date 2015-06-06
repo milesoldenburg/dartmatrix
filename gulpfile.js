@@ -1,4 +1,5 @@
 // Dependencies
+var bower = require('gulp-bower');
 var gulp = require('gulp');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
@@ -46,6 +47,13 @@ gulp.task('jscs:lib', function(){
             fix : true
         }))
         .pipe(gulp.dest(path.join(__dirname, 'lib')));
+});
+
+/**
+ * Installs bower components
+ */
+gulp.task('bower', function(){
+    return bower({directory : './static/bower_components'});
 });
 
 /**

@@ -1,5 +1,5 @@
 .idea
 node_modules
-static/bower_components
-static/css/fonts
-static/css/styles.css
+lib/static/bower_components
+lib/static/css/styles.css
+dist

@@ -55,7 +55,7 @@ gulp.task('jscs:lib', function(){
  * Installs bower components
  */
 gulp.task('bower', function(){
-    return bower({directory : './static/bower_components'});
+    return bower({directory : path.join(__dirname, 'lib/static/bower_components')});
 });
 
 /**
@@ -66,18 +66,18 @@ gulp.task('less', function(){
         browsers : ['last 1 Chrome version']
     });
 
-    return gulp.src(path.join(__dirname, 'static/css/styles.less'))
+    return gulp.src(path.join(__dirname, 'lib/static/css/styles.less'))
         .pipe(less({
             plugins : [autoprefix]
         }))
-        .pipe(gulp.dest(path.join(__dirname, 'static/css')));
+        .pipe(gulp.dest(path.join(__dirname, 'lib/static/css')));
 });
 
 /**
  * Watches for changes in LESS and then triggers the less task
  */
 gulp.task('watch', function(){
-    gulp.watch(path.join(__dirname, 'static/css/styles.less'), ['less']);
+    gulp.watch(path.join(__dirname, 'lib/static/css/styles.less'), ['less']);
 });
 
 /**

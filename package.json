@@ -5,6 +5,7 @@
   },
   "description": "DartMatrix: Open source darts companion and statistics app",
   "devDependencies": {
+    "asar": "^0.7.1",
     "electron-prebuilt": "^0.27.2",
     "gulp": "^3.9.0",
     "gulp-bower": "0.0.10",
@@ -21,6 +22,7 @@
     "url": "git@github.com/milesoldenburg/dartmatrix.git"
   },
   "scripts": {
+    "bundle": "asar pack lib dist/DartMatrix.asar",
     "start": "electron ."
   },
   "version": "0.1.0"

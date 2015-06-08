@@ -1,10 +1,12 @@
 // Dependencies
 var bower = require('gulp-bower');
+var del = require('del');
 var gulp = require('gulp');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var less = require('gulp-less');
 var LessPluginAutoPrefix = require('less-plugin-autoprefix');
+var ncp = require('ncp').ncp;
 var path = require('path');
 
 /**
@@ -78,6 +80,31 @@ gulp.task('less', function(){
  */
 gulp.task('watch', function(){
     gulp.watch(path.join(__dirname, 'lib/static/css/styles.less'), ['less']);
+});
+
+/**
+ * Copies resources for Mac bundle
+ */
+gulp.task('bundle', function(){
+    // Recursively copy prebuilt binary
+    ncp(path.join(__dirname, 'node_modules/electron-prebuilt/dist/Electron.app'), path.join(__dirname, 'dist/DartMatrix.app'), function(err){
+        if (err) {
+            return console.error(err);
+        }
+
+        // Delete default resources
+        del([
+            'dist/DartMatrix.app/Contents/Resources/*'
+        ]);
+
+        // Copy plist
+        gulp.src(path.join(__dirname, 'lib/resources/mac/Info.plist'))
+            .pipe(gulp.dest(path.join(__dirname, 'dist/DartMatrix.app/Contents')));
+
+        // Copy icon
+        gulp.src(path.join(__dirname, 'lib/resources/mac/DartMatrix.icns'))
+            .pipe(gulp.dest(path.join(__dirname, 'dist/DartMatrix.app/Contents/Resources')));
+    });
 });
 
 /**

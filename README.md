@@ -18,7 +18,10 @@ Watch for changes to the LESS file and automatically build the CSS
 ## Testing
 Lint all code
 
-	gulp
+	gulp lint
 	
 ## Running
 	npm start
+	
+## Building for Distribution
+	gulp bundle

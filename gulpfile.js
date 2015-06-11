@@ -6,7 +6,7 @@ var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var less = require('gulp-less');
 var LessPluginAutoPrefix = require('less-plugin-autoprefix');
-var ncp = require('ncp').ncp;
+var packager = require('electron-packager');
 var path = require('path');
 
 /**
@@ -82,28 +82,34 @@ gulp.task('watch', function(){
     gulp.watch(path.join(__dirname, 'lib/static/css/styles.less'), ['less']);
 });
 
+gulp.task('clean', function(){
+    // Delete default resources
+    del([
+        'dist/*'
+    ]);
+});
+
 /**
  * Copies resources for Mac bundle
  */
-gulp.task('bundle', function(){
-    // Recursively copy prebuilt binary
-    ncp(path.join(__dirname, 'node_modules/electron-prebuilt/dist/Electron.app'), path.join(__dirname, 'dist/DartMatrix.app'), function(err){
+gulp.task('bundle', ['clean', 'lint'], function(){
+    packager({
+        dir : './',
+        name : 'DartMatrix',
+        platform : 'darwin',
+        arch : 'x64',
+        version : '0.27.2',
+        out : './dist',
+        icon : './lib/resources/mac/DartMatrix.icns',
+        prune : true,
+        ignore : 'node_modules',
+        asar : true
+    }, function done(err, appPath){
         if (err) {
-            return console.error(err);
+            console.error(err);
         }
 
-        // Delete default resources
-        del([
-            'dist/DartMatrix.app/Contents/Resources/*'
-        ]);
-
-        // Copy plist
-        gulp.src(path.join(__dirname, 'lib/resources/mac/Info.plist'))
-            .pipe(gulp.dest(path.join(__dirname, 'dist/DartMatrix.app/Contents')));
-
-        // Copy icon
-        gulp.src(path.join(__dirname, 'lib/resources/mac/DartMatrix.icns'))
-            .pipe(gulp.dest(path.join(__dirname, 'dist/DartMatrix.app/Contents/Resources')));
+        console.log('app built to', appPath);
     });
 });
 
@@ -115,4 +121,4 @@ gulp.task('lint', ['lint:config', 'lint:lib', 'jscs:config', 'jscs:lib']);
 /**
  * Default gulp task
  */
-gulp.task('default', ['lint']);
+gulp.task('default', ['bundle']);

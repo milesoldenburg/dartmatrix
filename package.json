@@ -5,16 +5,15 @@
   },
   "description": "DartMatrix: Open source darts companion and statistics app",
   "devDependencies": {
-    "asar": "^0.7.1",
     "del": "^1.2.0",
+    "electron-packager": "^4.1.2",
     "electron-prebuilt": "^0.27.2",
     "gulp": "^3.9.0",
     "gulp-bower": "0.0.10",
     "gulp-jscs": "^1.6.0",
     "gulp-jshint": "^1.11.0",
     "gulp-less": "^3.0.3",
-    "less-plugin-autoprefix": "^1.4.2",
-    "ncp": "^2.0.0"
+    "less-plugin-autoprefix": "^1.4.2"
   },
   "main": "lib/main.js",
   "name": "dartmatrix",
@@ -24,7 +23,6 @@
     "url": "git@github.com/milesoldenburg/dartmatrix.git"
   },
   "scripts": {
-    "bundle": "mkdir -p dist/DartMatrix.app && gulp bundle && asar pack lib dist/DartMatrix.app/Contents/Resources/DartMatrix.asar",
     "start": "electron ."
   },
   "version": "0.1.0"

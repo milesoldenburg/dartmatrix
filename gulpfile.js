@@ -1,4 +1,5 @@
 // Dependencies
+var appdmg = require('appdmg');
 var bower = require('gulp-bower');
 var del = require('del');
 var gulp = require('gulp');
@@ -110,6 +111,28 @@ gulp.task('bundle', ['clean', 'lint'], function(){
         }
 
         console.log('app built to', appPath);
+    });
+});
+
+gulp.task('clean:dmg', function(){
+    // Delete default resources
+    del([
+        'dist/DartMatrix.dmg'
+    ]);
+});
+
+gulp.task('dmg', ['clean:dmg'], function(){
+    var dmgr = appdmg({
+        source: 'lib/resources/osx/appdmg.json',
+        target: 'dist/DartMatrix.dmg'
+    });
+
+    dmgr.on('finish', function(){
+        console.log('DartMatrix.dmg finished');
+    });
+
+    dmgr.on('error', function(err){
+        console.log('Error creating dmg', err);
     });
 });
 

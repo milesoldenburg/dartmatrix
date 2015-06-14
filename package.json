@@ -14,7 +14,8 @@
     "gulp-jscs": "^1.6.0",
     "gulp-jshint": "^1.11.0",
     "gulp-less": "^3.0.3",
-    "less-plugin-autoprefix": "^1.4.2"
+    "less-plugin-autoprefix": "^1.4.2",
+    "promise": "^7.0.1"
   },
   "main": "lib/main.js",
   "name": "dartmatrix",

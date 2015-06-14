@@ -9,6 +9,7 @@ var less = require('gulp-less');
 var LessPluginAutoPrefix = require('less-plugin-autoprefix');
 var packager = require('electron-packager');
 var path = require('path');
+var Promise = require('promise');
 
 /**
  * Lints the config files
@@ -122,18 +123,23 @@ gulp.task('clean:dmg', function(){
 });
 
 gulp.task('dmg', ['clean:dmg'], function(){
-    var dmgr = appdmg({
-        source: 'lib/resources/osx/appdmg.json',
-        target: 'dist/DartMatrix.dmg'
+    var promise = new Promise(function(resolve, reject){
+        var dmgr = appdmg({
+            source: 'lib/resources/osx/appdmg.json',
+            target: 'dist/DartMatrix.dmg'
+        });
+
+        dmgr.on('finish', function(){
+            console.log('DartMatrix.dmg finished');
+            resolve();
+        });
+
+        dmgr.on('error', function(err){
+            reject(err);
+        });
     });
 
-    dmgr.on('finish', function(){
-        console.log('DartMatrix.dmg finished');
-    });
-
-    dmgr.on('error', function(err){
-        console.log('Error creating dmg', err);
-    });
+    return promise;
 });
 
 /**

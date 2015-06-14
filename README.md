@@ -24,4 +24,6 @@ Lint all code
 	npm start
 	
 ## Building for Distribution
-	gulp bundle
+	gulp
+
+App and DMG containing app will be built to /dist.

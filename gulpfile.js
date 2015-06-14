@@ -95,38 +95,35 @@ gulp.task('clean', function(){
  * Copies resources for Mac bundle
  */
 gulp.task('bundle', ['clean', 'lint'], function(){
-    packager({
-        dir : './',
-        name : 'DartMatrix',
-        platform : 'darwin',
-        arch : 'x64',
-        version : '0.27.2',
-        out : './dist',
-        icon : './lib/resources/mac/DartMatrix.icns',
-        prune : true,
-        ignore : 'node_modules',
-        asar : true
-    }, function done(err, appPath){
-        if (err) {
-            console.error(err);
-        }
-
-        console.log('app built to', appPath);
+    var promise = new Promise(function(resolve, reject){
+        packager({
+            dir : './',
+            name : 'DartMatrix',
+            platform : 'darwin',
+            arch : 'x64',
+            version : '0.27.2',
+            out : './dist',
+            icon : './lib/resources/osx/DartMatrix.icns',
+            prune : true,
+            ignore : 'node_modules',
+            asar : true
+        }, function(err){
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
     });
+
+    return promise;
 });
 
-gulp.task('clean:dmg', function(){
-    // Delete default resources
-    del([
-        'dist/DartMatrix.dmg'
-    ]);
-});
-
-gulp.task('dmg', ['clean:dmg'], function(){
+gulp.task('dmg', ['bundle'], function(){
     var promise = new Promise(function(resolve, reject){
         var dmgr = appdmg({
-            source: 'lib/resources/osx/appdmg.json',
-            target: 'dist/DartMatrix.dmg'
+            source : 'lib/resources/osx/appdmg.json',
+            target : 'dist/DartMatrix.dmg'
         });
 
         dmgr.on('finish', function(){
@@ -150,4 +147,4 @@ gulp.task('lint', ['lint:config', 'lint:lib', 'jscs:config', 'jscs:lib']);
 /**
  * Default gulp task
  */
-gulp.task('default', ['bundle']);
+gulp.task('default', ['dmg']);

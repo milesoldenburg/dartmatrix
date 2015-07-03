@@ -15,7 +15,8 @@
     "gulp-jshint": "^1.11.0",
     "gulp-less": "^3.0.3",
     "less-plugin-autoprefix": "^1.4.2",
-    "promise": "^7.0.1"
+    "promise": "^7.0.1",
+    "sqlite3": "^3.0.8"
   },
   "main": "lib/main.js",
   "name": "dartmatrix",
@@ -25,7 +26,9 @@
     "url": "git@github.com/milesoldenburg/dartmatrix.git"
   },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "postinstall": "npm run rebuild-sqlite3",
+    "rebuild-sqlite3": "cd node_modules/sqlite3 && npm run prepublish && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v44-darwin-x64 && node-gyp rebuild --target=0.29.1 --arch=x64 --target_platform=darwin --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/node-v44-darwin-x64"
   },
   "version": "0.1.0"
 }

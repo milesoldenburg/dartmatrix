@@ -8,7 +8,7 @@
     "appdmg": "^0.3.1",
     "del": "^1.2.0",
     "electron-packager": "^4.1.2",
-    "electron-prebuilt": "^0.27.2",
+    "electron-prebuilt": "^0.29.0",
     "gulp": "^3.9.0",
     "gulp-bower": "0.0.10",
     "gulp-jscs": "^1.6.0",

@@ -25,7 +25,7 @@ gulp.task('lint:config', function(){
  * Lints lib js
  */
 gulp.task('lint:lib', function(){
-    return gulp.src(path.join(__dirname, 'lib/main.js'))
+    return gulp.src(path.join(__dirname, 'lib/*.js'))
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(jshint.reporter('fail'));
@@ -47,7 +47,7 @@ gulp.task('jscs:config', function(){
  * Runs style check on lib js
  */
 gulp.task('jscs:lib', function(){
-    return gulp.src(path.join(__dirname, 'lib/main.js'))
+    return gulp.src(path.join(__dirname, 'lib/*.js'))
         .pipe(jscs({
             configPath : '.jscsrc',
             fix : true

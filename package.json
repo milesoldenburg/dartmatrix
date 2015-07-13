@@ -12,10 +12,11 @@
     "gulp": "^3.9.0",
     "gulp-bower": "0.0.10",
     "gulp-jscs": "^1.6.0",
-    "gulp-jshint": "^1.11.0",
+    "gulp-jshint": "^1.11.2",
     "gulp-less": "^3.0.3",
     "less-plugin-autoprefix": "^1.4.2",
-    "promise": "^7.0.1",
+    "promise": "^7.0.3",
+    "q": "^1.4.1",
     "sqlite3": "^3.0.8"
   },
   "main": "lib/main.js",

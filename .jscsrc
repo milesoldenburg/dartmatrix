@@ -1,4 +1,5 @@
 {
+    "excludeFiles" : ["lib/static/bower_components/**/*.js"],
     "disallowEmptyBlocks": true,
     "disallowKeywordsOnNewLine": [
         "else if",
@@ -53,6 +54,7 @@
     ],
     "requirePaddingNewLinesAfterBlocks": {
         "allExcept": [
+            "inCallExpressions",
             "inArrayExpressions",
             "inProperties"
         ]

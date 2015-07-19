@@ -51,8 +51,7 @@ gulp.task('jscs:config', function(){
  */
 gulp.task('jscs:lib', function(){
     return gulp.src([
-            './lib/**/*.js',
-            '!./lib/static/bower_components/**/*.js'
+            './lib/**/*.js'
         ])
         .pipe(jscs({
             configPath : '.jscsrc',

@@ -9,7 +9,7 @@ var less = require('gulp-less');
 var LessPluginAutoPrefix = require('less-plugin-autoprefix');
 var packager = require('electron-packager');
 var path = require('path');
-var Promise = require('promise');
+var Q = require('q');
 
 /**
  * Lints the config files
@@ -100,48 +100,47 @@ gulp.task('clean', function(){
  * Copies resources for Mac bundle
  */
 gulp.task('bundle', ['clean', 'lint'], function(){
-    var promise = new Promise(function(resolve, reject){
-        packager({
-            dir : './',
-            name : 'DartMatrix',
-            platform : 'darwin',
-            arch : 'x64',
-            version : '0.27.2',
-            out : './dist',
-            icon : './lib/resources/osx/DartMatrix.icns',
-            prune : true,
-            ignore : 'node_modules',
-            asar : true
-        }, function(err){
-            if (err) {
-                reject(err);
-            } else {
-                resolve();
-            }
-        });
+    var deferred = Q.defer();
+
+    packager({
+        dir : './',
+        name : 'DartMatrix',
+        platform : 'darwin',
+        arch : 'x64',
+        version : '0.29.0',
+        out : './dist',
+        icon : './lib/resources/osx/DartMatrix.icns',
+        prune : true,
+        ignore : 'node_modules'
+    }, function(err){
+        if (err) {
+            deferred.reject(err);
+        } else {
+            deferred.resolve();
+        }
     });
 
-    return promise;
+    return deferred.promise;
 });
 
 gulp.task('dmg', ['bundle'], function(){
-    var promise = new Promise(function(resolve, reject){
-        var dmgr = appdmg({
-            source : 'lib/resources/osx/appdmg.json',
-            target : 'dist/DartMatrix.dmg'
-        });
+    var deferred = Q.defer();
 
-        dmgr.on('finish', function(){
-            console.log('DartMatrix.dmg finished');
-            resolve();
-        });
-
-        dmgr.on('error', function(err){
-            reject(err);
-        });
+    var dmgr = appdmg({
+        source : 'lib/resources/osx/appdmg.json',
+        target : 'dist/DartMatrix.dmg'
     });
 
-    return promise;
+    dmgr.on('finish', function(){
+        console.log('DartMatrix.dmg finished');
+        deferred.resolve();
+    });
+
+    dmgr.on('error', function(err){
+        deferred.reject(err);
+    });
+
+    return deferred.promise;
 });
 
 /**

@@ -8,8 +8,9 @@
         <div class="col-xs-3 col-xs-offset-3">
             <div class="form-group">
                 <select class="form-control input-lg" id="gametype">
-                    <option>301</option>
-                    <option>501</option>
+                    <% _.each(gameTypes, function(element){ %>
+                        <option value="<%= element.id %>"><%= element.type %></option>
+                    <% }); %>
                 </select>
             </div>
         </div>

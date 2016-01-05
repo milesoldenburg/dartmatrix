@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "description": "Static components for DartMatrix",
   "dependencies": {
-    "backbone": "~1.2.1",
-    "bootstrap": "~3.3.4",
+    "backbone": "~1.2.3",
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.1.4",
     "ubuntu-fontface": "~0.1.3"
   }
 }

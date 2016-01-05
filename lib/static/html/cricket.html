@@ -1,62 +1,69 @@
-<table class="table">
-    <thead>
-        <tr>
-            <th>Score</th>
-            <th>Player</th>
-            <th>Cricket</th>
-            <th>Computer</th>
-            <th>Score</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><%= displayPoints(player['20'].points) %></td>
-            <td><%= displayScore(player['20'].score) %></td>
-            <td>20</td>
-            <td><%= displayScore(computer['20'].score) %></td>
-            <td><%= displayPoints(computer['20'].points) %></td>
-        </tr>
-        <tr>
-            <td><%= displayPoints(player['19'].points) %></td>
-            <td><%= displayScore(player['19'].score) %></td>
-            <td>19</td>
-            <td><%= displayScore(computer['19'].score) %></td>
-            <td><%= displayPoints(computer['19'].points) %></td>
-        </tr>
-        <tr>
-            <td><%= displayPoints(player['18'].points) %></td>
-            <td><%= displayScore(player['18'].score) %></td>
-            <td>18</td>
-            <td><%= displayScore(computer['18'].score) %></td>
-            <td><%= displayPoints(computer['18'].points) %></td>
-        </tr>
-        <tr>
-            <td><%= displayPoints(player['17'].points) %></td>
-            <td><%= displayScore(player['17'].score) %></td>
-            <td>17</td>
-            <td><%= displayScore(computer['17'].score) %></td>
-            <td><%= displayPoints(computer['17'].points) %></td>
-        </tr>
-        <tr>
-            <td><%= displayPoints(player['16'].points) %></td>
-            <td><%= displayScore(player['16'].score) %></td>
-            <td>16</td>
-            <td><%= displayScore(computer['16'].score) %></td>
-            <td><%= displayPoints(computer['16'].points) %></td>
-        </tr>
-        <tr>
-            <td><%= displayPoints(player['15'].points) %></td>
-            <td><%= displayScore(player['15'].score) %></td>
-            <td>15</td>
-            <td><%= displayScore(computer['15'].score) %></td>
-            <td><%= displayPoints(computer['15'].points) %></td>
-        </tr>
-        <tr>
-            <td><%= displayPoints(player['Bull'].points) %></td>
-            <td><%= displayScore(player['Bull'].score) %></td>
-            <td>Bull</td>
-            <td><%= displayScore(computer['Bull'].score) %></td>
-            <td><%= displayPoints(computer['Bull'].points) %></td>
-        </tr>
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-lg-6">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Score</th>
+                <th>Player</th>
+                <th>Cricket</th>
+                <th>Computer</th>
+                <th>Score</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><%= displayPoints(player['20'].points) %></td>
+                <td><%= displayScore(player['20'].score) %></td>
+                <td>20</td>
+                <td><%= displayScore(computer['20'].score) %></td>
+                <td><%= displayPoints(computer['20'].points) %></td>
+            </tr>
+            <tr>
+                <td><%= displayPoints(player['19'].points) %></td>
+                <td><%= displayScore(player['19'].score) %></td>
+                <td>19</td>
+                <td><%= displayScore(computer['19'].score) %></td>
+                <td><%= displayPoints(computer['19'].points) %></td>
+            </tr>
+            <tr>
+                <td><%= displayPoints(player['18'].points) %></td>
+                <td><%= displayScore(player['18'].score) %></td>
+                <td>18</td>
+                <td><%= displayScore(computer['18'].score) %></td>
+                <td><%= displayPoints(computer['18'].points) %></td>
+            </tr>
+            <tr>
+                <td><%= displayPoints(player['17'].points) %></td>
+                <td><%= displayScore(player['17'].score) %></td>
+                <td>17</td>
+                <td><%= displayScore(computer['17'].score) %></td>
+                <td><%= displayPoints(computer['17'].points) %></td>
+            </tr>
+            <tr>
+                <td><%= displayPoints(player['16'].points) %></td>
+                <td><%= displayScore(player['16'].score) %></td>
+                <td>16</td>
+                <td><%= displayScore(computer['16'].score) %></td>
+                <td><%= displayPoints(computer['16'].points) %></td>
+            </tr>
+            <tr>
+                <td><%= displayPoints(player['15'].points) %></td>
+                <td><%= displayScore(player['15'].score) %></td>
+                <td>15</td>
+                <td><%= displayScore(computer['15'].score) %></td>
+                <td><%= displayPoints(computer['15'].points) %></td>
+            </tr>
+            <tr>
+                <td><%= displayPoints(player['Bull'].points) %></td>
+                <td><%= displayScore(player['Bull'].score) %></td>
+                <td>Bull</td>
+                <td><%= displayScore(computer['Bull'].score) %></td>
+                <td><%= displayPoints(computer['Bull'].points) %></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-6 text-center">
+        <%= svg %>
+    </div>
+</div>

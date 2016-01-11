@@ -1,3 +1,5 @@
+@red: #ED3737;
+
 html {
   background: url("../img/bg.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -45,5 +47,26 @@ body {
 #dartboard #areas g path, #dartboard #areas g circle {
   &:hover {
     fill: #fe26f6;
+  }
+}
+
+.board-container {
+  padding-right: 30px;
+  padding-bottom: 15px;
+}
+
+.block-button {
+  background-color: @red;
+  color: #FFF;
+  font-size: 180%;
+  height: 50px;
+  margin-top: 15px;
+  padding-top: 8px;
+
+  &.unused-dart {
+    background-image: url("../img/dart.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%;
   }
 }

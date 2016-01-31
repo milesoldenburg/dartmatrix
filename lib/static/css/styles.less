@@ -145,11 +145,15 @@ body {
   padding-top: 8px;
 
   &.unused-dart {
-    background-color: #EEE;
+    background-color: #EEE !important;
     background-image: url("../img/dart.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50%;
+  }
+
+  &.dart-0 {
+    background-color: #666;
   }
 
   &.dart-1 {
@@ -185,5 +189,31 @@ body {
 
   &:disabled {
     background-color: #EEE;
+  }
+}
+
+.miss-button, .undo-button {
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(51, 102, 104, 0.8);
+  }
+}
+
+.end-button {
+  cursor: pointer;
+
+  &.active {
+    animation: pulse 2s linear infinite alternate;
+    background-color: @red;
+  }
+
+  @keyframes pulse {
+    0% {
+      background-color: rgba(237, 55, 55, 1);
+    }
+    100% {
+      background-color: rgba(237, 55, 55, 0.7);
+    }
   }
 }

@@ -1,4 +1,6 @@
 @red: #ED3737;
+@green: #4F9962;
+@teal: #336668;
 
 html {
   background: url("../img/bg.jpg") no-repeat center center fixed;
@@ -60,7 +62,7 @@ body {
 }
 
 .block-button {
-  background-color: @red;
+  background-color: @teal;
   color: #FFF;
   font-size: 180%;
   height: 50px;
@@ -68,9 +70,45 @@ body {
   padding-top: 8px;
 
   &.unused-dart {
+    background-color: #EEE;
     background-image: url("../img/dart.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50%;
+  }
+
+  &.dart-1 {
+    background-color: #000;
+  }
+
+  &.dart-2 {
+    background-color: @green;
+  }
+
+  &.dart-3 {
+    background-color: @red;
+  }
+
+  &.dart-special {
+    animation: gradient_move 5s infinite alternate;
+    background: #fceabb;
+
+    .loop(@counter) when (@counter > -1) {
+      .loop((@counter - 1));
+
+      @percent: (0% + @counter);
+
+      @{percent} {
+        background: linear-gradient(135deg, #fceabb 0%, #fccd4d (0% + @counter), #f8b500 (0% + @counter + 1), #fbdf93 100%);
+      }
+    }
+
+    @keyframes gradient_move {
+      .loop(100);
+    }
+  }
+
+  &:disabled {
+    background-color: #EEE;
   }
 }

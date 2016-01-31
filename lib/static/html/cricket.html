@@ -50,25 +50,25 @@
     <div class="col-lg-6 text-center board-container">
         <div class="row">
             <div class="col-lg-4">
-                <div class="block-button <% if (_.isNull(darts[0].display)) print('unused-dart'); %>"><%= darts[0].display %></div>
+                <div class="block-button <% if (_.isNull(darts[0].display)) print('unused-dart'); %> dart-<%=darts[0].amount %>"><%= darts[0].display %></div>
             </div>
             <div class="col-lg-4">
-                <div class="block-button <% if (_.isNull(darts[1].display)) print('unused-dart'); %>"><%= darts[1].display %></div>
+                <div class="block-button <% if (_.isNull(darts[1].display)) print('unused-dart'); %> dart-<%=darts[1].amount %>"><%= darts[1].display %></div>
             </div>
             <div class="col-lg-4">
-                <div class="block-button <% if (_.isNull(darts[2].display)) print('unused-dart'); %>"><%= darts[2].display %></div>
+                <div class="block-button <% if (_.isNull(darts[2].display)) print('unused-dart'); %> dart-<%=darts[2].amount %>"><%= darts[2].display %></div>
             </div>
         </div>
         <%= svg %>
         <div class="row">
             <div class="col-lg-4">
-                <div class="block-button miss-button">MISS</div>
+                <div class="block-button miss-button">Miss</div>
             </div>
             <div class="col-lg-4">
-                <div class="block-button undo-button">UNDO</div>
+                <div class="block-button undo-button">Undo</div>
             </div>
             <div class="col-lg-4">
-                <div class="block-button end-button">END TURN</div>
+                <div class="block-button end-button">End Turn</div>
             </div>
         </div>
     </div>

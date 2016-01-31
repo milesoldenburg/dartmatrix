@@ -3,9 +3,9 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Player</th>
+                <th>Player<br><%= score[0]['points'] %></th>
                 <th>Cricket</th>
-                <th>Computer</th>
+                <th>Computer<br><%= score[1]['points'] %></th>
             </tr>
             </thead>
             <tbody>
@@ -50,25 +50,25 @@
     <div class="col-lg-6 text-center board-container">
         <div class="row">
             <div class="col-lg-4">
-                <div class="block-button <% if (_.isNull(darts[0])) print('unused-dart'); %>"><%= darts[0] %></div>
+                <div class="block-button <% if (_.isNull(darts[0].display)) print('unused-dart'); %>"><%= darts[0].display %></div>
             </div>
             <div class="col-lg-4">
-                <div class="block-button <% if (_.isNull(darts[1])) print('unused-dart'); %>"><%= darts[1] %></div>
+                <div class="block-button <% if (_.isNull(darts[1].display)) print('unused-dart'); %>"><%= darts[1].display %></div>
             </div>
             <div class="col-lg-4">
-                <div class="block-button <% if (_.isNull(darts[2])) print('unused-dart'); %>"><%= darts[2] %></div>
+                <div class="block-button <% if (_.isNull(darts[2].display)) print('unused-dart'); %>"><%= darts[2].display %></div>
             </div>
         </div>
         <%= svg %>
         <div class="row">
             <div class="col-lg-4">
-                <div class="block-button">MISS</div>
+                <div class="block-button miss-button">MISS</div>
             </div>
             <div class="col-lg-4">
-                <div class="block-button">UNDO</div>
+                <div class="block-button undo-button">UNDO</div>
             </div>
             <div class="col-lg-4">
-                <div class="block-button">END TURN</div>
+                <div class="block-button end-button">END TURN</div>
             </div>
         </div>
     </div>

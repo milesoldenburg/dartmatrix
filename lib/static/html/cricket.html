@@ -3,13 +3,13 @@
         <div class="row">
             <div class="block-header">
                 <div class="col-lg-4">
-                    <div class="block-header-score">Player<br><%= score[0]['points'] %></div>
+                    <div class="block-header-score <% if (turn === 0) print('active'); %>">Player<br><%= score[0]['points'] %></div>
                 </div>
                 <div class="col-lg-4">
                     <div class="block-header-game">Cricket</div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="block-header-score">Computer<br><%= score[1]['points'] %></div>
+                    <div class="block-header-score <% if (turn === 1) print('active'); %>">Computer<br><%= score[1]['points'] %></div>
                 </div>
             </div>
         </div>
@@ -19,13 +19,21 @@
                 <div class="score-item">
                     <div class="row">
                         <div class="col-lg-4">
-                            <div class="block-score"><div class="block-score-content"><%= score[0][element] %></div></div>
+                            <div class="block-score">
+                                <div class="block-score-content">
+                                    <img src="img/score-<%= score[0][element] %>.png">
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="block-score-title"><div class="block-score-content"><%= element %></div></div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="block-score"><div class="block-score-content"><%= score[1][element] %></div></div>
+                            <div class="block-score">
+                                <div class="block-score-content">
+                                    <img src="img/score-<%= score[1][element] %>.png">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

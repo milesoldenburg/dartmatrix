@@ -62,12 +62,17 @@ body {
   .block-header {
     background-color: #000;
     color: #FFF;
+    font-weight: bold;
     height: 50px;
     margin: 15px 15px 0 15px;
 
     .block-header-score {
       font-size: 120%;
       text-align: center;
+
+      &.active {
+        color: @red;
+      }
     }
 
     .block-header-game {
@@ -114,6 +119,14 @@ body {
         .block-score, .block-score-title {
           width: 100%;
 
+          .block-score-content {
+            img {
+              height: 72px;
+            }
+          }
+        }
+
+        .block-score-title {
           .block-score-content {
             transform: translateY(54%);
           }

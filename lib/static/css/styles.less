@@ -1,6 +1,7 @@
 @red: #ED3737;
 @green: #4F9962;
 @teal: #336668;
+@tan: #F7E9CD;
 
 html {
   background: url("../img/bg.jpg") no-repeat center center fixed;
@@ -56,8 +57,69 @@ body {
 .score-container {
   padding-left: 30px;
 
-  table {
-    margin-bottom: 0;
+
+
+  .block-header {
+    background-color: #000;
+    color: #FFF;
+    height: 50px;
+    margin: 15px 15px 0 15px;
+
+    .block-header-score {
+      font-size: 120%;
+      text-align: center;
+    }
+
+    .block-header-game {
+      font-size: 180%;
+      padding-top: 6px;
+      text-align: center;
+    }
+  }
+
+  .block-score {
+    background-color: @tan;
+    color: #000;
+    font-size: 180%;
+    padding-top: 8px;
+    text-align: center;
+  }
+
+  .block-score-title {
+    background-color: #000;
+    color: #FFF;
+    font-size: 180%;
+    padding-top: 8px;
+    text-align: center;
+  }
+
+  .score-items-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .score-item {
+    display: flex;
+    flex-grow: 1;
+    margin: 15px 0 0 0;
+
+    .row {
+      flex-grow: 1;
+      display: flex;
+
+      .col-lg-4 {
+        display: flex;
+
+        .block-score, .block-score-title {
+          width: 100%;
+
+          .block-score-content {
+            transform: translateY(54%);
+          }
+        }
+      }
+    }
   }
 }
 

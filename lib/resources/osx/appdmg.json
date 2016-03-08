@@ -5,6 +5,6 @@
   "icon-size": 80,
   "contents": [
     {"x": 428, "y": 344, "type": "link", "path": "/Applications"},
-    {"x": 172, "y": 344, "type": "file", "path": "../../../dist/DartMatrix.app"}
+    {"x": 172, "y": 344, "type": "file", "path": "../../../dist/DartMatrix-darwin-x64/DartMatrix.app"}
   ]
 }

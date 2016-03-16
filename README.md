@@ -1,6 +1,10 @@
 # DartMatrix
 An open source darts scoring and statistics app. DartMatrix is an OSX app built using [Electron](http://electron.atom.io/).
 
+## Prerequisites
+- node (5.8.0+)
+- npm (3.7.3+)
+
 ## Building
 Install proper dependencies
 

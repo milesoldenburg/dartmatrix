@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS "3outs" (
 	`d1`	TEXT,
 	`d2`	TEXT,
 	`d3`	TEXT
-)
+);
 
 INSERT INTO `3outs` VALUES (164,'t20','t18','Bull');
 INSERT INTO `3outs` VALUES (164,'t19','t19','Bull');

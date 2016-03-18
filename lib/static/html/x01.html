@@ -15,10 +15,21 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <div><%= score[0] %></div>
+                <div class="x01-score left"><%= score[0] %></div>
             </div>
             <div class="col-lg-4 col-lg-offset-4">
-                <div><%= score[1] %></div>
+                <div class="x01-score right"><%= score[1] %></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="out-shot"><%= outshot[0] %></div>
+            </div>
+            <div class="col-lg-4">
+                <div class="out-shot"><%= outshot[1] %></div>
+            </div>
+            <div class="col-lg-4">
+                <div class="out-shot"><%= outshot[2] %></div>
             </div>
         </div>
     </div>
@@ -43,7 +54,7 @@
                 <div class="block-button undo-button">Undo</div>
             </div>
             <div class="col-lg-4">
-                <div class="block-button end-button <% if (dart === 3) print('active') %>">End Turn</div>
+                <div class="block-button end-button <% if (dart === 3 || score[turn] === 0) print('active') %>">End Turn</div>
             </div>
         </div>
     </div>
